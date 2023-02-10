@@ -6,7 +6,7 @@ export default (filepath1, filepath2) => {
   const data1 = readFileSync(path.resolve(process.cwd(), filepath1), 'utf-8');
   const data2 = readFileSync(path.resolve(process.cwd(), filepath2), 'utf-8');
   // console.log(process.cwd());
-  console.log(path.resolve(process.cwd(), filepath1));
+  // console.log(path.resolve(process.cwd(), filepath1));
   // console.log(path.resolve(filepath2));
   // console.log(data1, data2);
   const dataParse1 = JSON.parse(data1);
