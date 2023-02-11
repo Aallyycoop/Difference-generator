@@ -1,17 +1,16 @@
-name: gendiff-check
+name: gendiff
 on: push
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - uses: snyk/actions/node@master
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with: 
           node-version: 16.x
           cache: 'npm'
 
-      - run: make setup
+      - run: make install
       - run: make test
       - run: make lint
