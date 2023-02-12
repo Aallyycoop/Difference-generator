@@ -1,6 +1,12 @@
 import { readFileSync } from 'node:fs';
 import _ from 'lodash';
 import path from 'path';
+import parser from './parsers.js';
+
+const getFormat = (filepath) => path.extname(filepath);
+
+// const getFormat = path.extname('__fixtures__/file1.json');
+// console.log(getFormat);
 
 export default (filepath1, filepath2) => {
   const data1 = readFileSync(path.resolve(process.cwd(), filepath1), 'utf-8');
@@ -9,8 +15,10 @@ export default (filepath1, filepath2) => {
   // console.log(path.resolve(process.cwd(), filepath1));
   // console.log(path.resolve(filepath2));
   // console.log(data1, data2);
-  const dataParse1 = JSON.parse(data1);
-  const dataParse2 = JSON.parse(data2);
+  // const dataParse1 = JSON.parse(data1);
+  // const dataParse2 = JSON.parse(data2);
+  const dataParse1 = parser(data1, getFormat(filepath1));
+  const dataParse2 = parser(data2, getFormat(filepath2));
   // console.log(dataParse1);
   // console.log(dataParse2);
   const keys = _.union(_.keys(dataParse1), _.keys(dataParse2));
@@ -32,6 +40,8 @@ export default (filepath1, filepath2) => {
 };
 
 // gendiff __fixtures__/file1.json __fixtures__/file2.json
+
+// gendiff __fixtures__/file3.yaml __fixtures__/file4.yml
 
 // gendiff file1.json file2.json
 
