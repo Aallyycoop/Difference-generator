@@ -6,5 +6,10 @@
 
 ***
 
-#### Difference between two flat files:
+#### Difference between two flat files .json - .json:
 [![asciicast](https://asciinema.org/a/CuVgJu9F0oAKTit8ljsDP3o45.svg)](https://asciinema.org/a/CuVgJu9F0oAKTit8ljsDP3o45)
+
+***
+
+#### Difference between two flat files .yaml - .yml:
+[![asciicast](https://asciinema.org/a/AJO2NndDkNi4FoPaIFJdaWTs0.svg)](https://asciinema.org/a/AJO2NndDkNi4FoPaIFJdaWTs0)
