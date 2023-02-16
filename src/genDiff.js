@@ -19,7 +19,7 @@ const genDiff = (object1, object2) => {
         key, type: 'changed', value1: object1[key], value2: object2[key],
       };
     }
-    return { key, type: 'unchanged', value1: object1[key] };
+    return { key, type: 'unchanged', value: object1[key] };
   });
   // console.log(differenceTree);
   return differenceTree;
