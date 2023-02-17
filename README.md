@@ -13,3 +13,9 @@
 
 #### Difference between two flat files .yaml - .yml:
 [![asciicast](https://asciinema.org/a/AJO2NndDkNi4FoPaIFJdaWTs0.svg)](https://asciinema.org/a/AJO2NndDkNi4FoPaIFJdaWTs0)
+
+***
+
+#### Difference between two nested files .json - .json (or .yaml - .yml):
+
+[![asciicast](https://asciinema.org/a/6q8o43DAqHFCEWQVqgrx20dYE.svg)](https://asciinema.org/a/6q8o43DAqHFCEWQVqgrx20dYE)
