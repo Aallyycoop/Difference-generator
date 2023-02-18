@@ -5,7 +5,7 @@ import parser from './parsers.js';
 import genDiff from './genDiff.js';
 // import stylish from './stylish.js';
 // import plain from './plain.js';
-import getFormatter from '../formatters/index.js';
+import getFormatter from './formatters/index.js';
 
 const getFormat = (filepath) => path.extname(filepath);
 const readFile = (filepath) => readFileSync(path.resolve(process.cwd(), filepath), 'utf-8');
