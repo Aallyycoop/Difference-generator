@@ -3,7 +3,6 @@ import _ from 'lodash';
 const genDiff = (object1, object2) => {
   const keys = _.union(_.keys(object1), _.keys(object2));
   const sortedKeys = _.sortBy(keys);
-  // console.log(sortedKeys);
   const differenceTree = sortedKeys.map((key) => {
     if (!_.has(object1, key)) {
       return { key, type: 'added', value: object2[key] };
@@ -21,7 +20,6 @@ const genDiff = (object1, object2) => {
     }
     return { key, type: 'unchanged', value: object1[key] };
   });
-  // console.log(differenceTree);
   return differenceTree;
 };
 

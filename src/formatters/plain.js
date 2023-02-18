@@ -25,9 +25,6 @@ const plain = (differenceTree) => {
       }
       return '';
     });
-    // console.log([...result]);
-    // console.log(result);
-    // return [...result].join('\n');
     return result.filter((line) => line !== '').join('\n');
   };
   return iter(differenceTree, '');

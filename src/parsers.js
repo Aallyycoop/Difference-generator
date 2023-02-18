@@ -1,6 +1,5 @@
 import yaml from 'js-yaml';
 
-// Выбирается функция-парсер в зависимости от расширения файла
 const parser = (data, format) => {
   if (format === '.json') {
     return JSON.parse(data);

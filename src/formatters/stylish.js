@@ -6,18 +6,14 @@ const getIndent = (depth) => ' '.repeat(depth * defaultIndent - 2);
 const getEndIndent = (depth) => ' '.repeat(depth * defaultIndent);
 
 const stringify = (data, depth = 1) => {
-  // const iter = (innerData, iterDepth) => {
   if (!_.isObject(data)) {
     return `${data}`;
   }
 
   const entries = Object.entries(data);
   const result = entries.map(([key, value]) => `${getIndent(depth + 1)}  ${key}: ${stringify(value, depth + 1)}`);
-  // const endIndent = ' '.repeat(depth * defaultIndent + 2);
   return ['{', ...result, `${getEndIndent(depth)}}`].join('\n');
 };
-  // return iter(data, depth);
-// };
 
 const stylish = (differenceTree) => {
   const iter = (differenceNodes, depth) => {
