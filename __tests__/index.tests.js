@@ -3,6 +3,7 @@ import path, { dirname } from 'path';
 // import path from 'path';
 import { readFileSync } from 'node:fs';
 import genDiff from '../src/index.js';
+import plain from '../formatters/plain.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -19,9 +20,9 @@ test('gendiff between yaml - yml, stylish format', () => {
 });
 
 test('gendiff between json - json, plain format', () => {
-  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toEqual(readFile('plain_expected_file.txt'));
+  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'plain')).toEqual(readFile('plain_expected_file.txt'));
 });
 
 test('gendiff between yaml - yml, plain format', () => {
-  expect(genDiff(getFixturePath('file3.yaml'), getFixturePath('file4.yml'))).toEqual(readFile('plain_expected_file.txt'));
+  expect(genDiff(getFixturePath('file3.yaml'), getFixturePath('file4.yml'), 'plain')).toEqual(readFile('plain_expected_file.txt'));
 });
