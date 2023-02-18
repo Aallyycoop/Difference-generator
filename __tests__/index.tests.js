@@ -25,3 +25,11 @@ test('gendiff between json - json, plain format', () => {
 test('gendiff between yaml - yml, plain format', () => {
   expect(genDiff(getFixturePath('file3.yaml'), getFixturePath('file4.yml'), 'plain')).toEqual(readFile('plain_expected_file.txt'));
 });
+
+test('gendiff between json - json, json format', () => {
+  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'json')).toEqual(readFile('json_expected_file.txt'));
+});
+
+test('gendiff between yaml - yml, json format', () => {
+  expect(genDiff(getFixturePath('file3.yaml'), getFixturePath('file4.yml'), 'json')).toEqual(readFile('json_expected_file.txt'));
+});
