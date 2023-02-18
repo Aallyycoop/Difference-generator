@@ -25,3 +25,9 @@
 #### Difference between two nested files .json - .json (or .yaml - .yml) in plain format:
 
 [![asciicast](https://asciinema.org/a/Q3Di2l3lrTO2H4Ed84SlTABq4.svg)](https://asciinema.org/a/Q3Di2l3lrTO2H4Ed84SlTABq4)
+
+***
+
+#### Difference between two nested files .json - .json (or .yaml - .yml) in json format:
+
+[![asciicast](https://asciinema.org/a/j7aEjTSGjcYkzEt6PixcLgJ9J.svg)](https://asciinema.org/a/j7aEjTSGjcYkzEt6PixcLgJ9J)
