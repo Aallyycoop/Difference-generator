@@ -18,21 +18,22 @@ const stringify = (data, depth = 1) => {
 const stylish = (differenceTree) => {
   const iter = (differenceNodes, depth) => {
     const result = differenceNodes.map((node) => {
-      if (node.type === 'nested') {
-        return `${getIndent(depth)}  ${node.key}: ${iter(node.children, depth + 1)}`;
+      switch (node.type) {
+        case 'nested':
+          return `${getIndent(depth)}  ${node.key}: ${iter(node.children, depth + 1)}`;
+        case 'added':
+          return `${getIndent(depth)}+ ${node.key}: ${stringify(node.value, depth)}`;
+        case 'deleted':
+          return `${getIndent(depth)}- ${node.key}: ${stringify(node.value, depth)}`;
+        case 'changed': {
+          const originalLine = `${getIndent(depth)}- ${node.key}: ${stringify(node.value1, depth)}`;
+          const newLine = `${getIndent(depth)}+ ${node.key}: ${stringify(node.value2, depth)}`;
+          return `${originalLine}\n${newLine}`;
+        }
+        case 'unchanged':
+          return `${getIndent(depth)}  ${node.key}: ${stringify(node.value, depth)}`;
+        default: return `Type ${node.type} is not supported`;
       }
-      if (node.type === 'added') {
-        return `${getIndent(depth)}+ ${node.key}: ${stringify(node.value, depth)}`;
-      }
-      if (node.type === 'deleted') {
-        return `${getIndent(depth)}- ${node.key}: ${stringify(node.value, depth)}`;
-      }
-      if (node.type === 'changed') {
-        const originalLine = `${getIndent(depth)}- ${node.key}: ${stringify(node.value1, depth)}`;
-        const newLine = `${getIndent(depth)}+ ${node.key}: ${stringify(node.value2, depth)}`;
-        return `${originalLine}\n${newLine}`;
-      }
-      return `${getIndent(depth)}  ${node.key}: ${stringify(node.value, depth)}`;
     });
     return ['{', ...result, `${getEndIndent(depth - 1)}}`].join('\n');
   };
