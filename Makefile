@@ -13,5 +13,5 @@ test-coverage:
 test-watch:
 	npx jest --watch
 
-make lint:
+lint:
 	npx eslint .
