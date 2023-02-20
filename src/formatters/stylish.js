@@ -7,7 +7,7 @@ const getEndIndent = (depth) => ' '.repeat(depth * defaultIndent);
 
 const stringify = (data, depth = 1) => {
   if (!_.isObject(data)) {
-    return `${data}`;
+    return String(data);
   }
 
   const entries = Object.entries(data);
