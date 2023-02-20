@@ -11,10 +11,12 @@ const readFile = (filename) => readFileSync(getFixturePath(filename), 'utf-8');
 
 test('gendiff between json - json, stylish format', () => {
   expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toEqual(readFile('stylish_expected_file.txt'));
+  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'stylish')).toEqual(readFile('stylish_expected_file.txt'));
 });
 
 test('gendiff between yaml - yml, stylish format', () => {
   expect(genDiff(getFixturePath('file3.yaml'), getFixturePath('file4.yml'))).toEqual(readFile('stylish_expected_file.txt'));
+  expect(genDiff(getFixturePath('file3.yaml'), getFixturePath('file4.yml'), 'stylish')).toEqual(readFile('stylish_expected_file.txt'));
 });
 
 test('gendiff between json - json, plain format', () => {
